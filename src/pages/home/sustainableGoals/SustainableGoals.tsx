@@ -23,7 +23,9 @@ import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 
 function SustainableGoals() {
-     const [windowWidth, setWindowWidth] = useState(0)
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
 
      const currentViewRef = useRef(null)
 
