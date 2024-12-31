@@ -7,7 +7,6 @@ import clientImage from '../../../assets/images/img_ourLeader_.png'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import Header from '@/component/header/Header'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
-import { Inter } from 'next/font/google'
 import ProfileCard from '../component/profileCard/ProfileCard'
 import profilePic from '../../../assets/images/img_profile.png'
 import profilePic2 from '../../../assets/images/img_profile_2.png'
@@ -109,6 +108,7 @@ const OurLeaders = () => {
                               title={item.title}
                               position={item.position}
                               location={item.location}
+                              index={index}
                          />
                     ))}
                </div>

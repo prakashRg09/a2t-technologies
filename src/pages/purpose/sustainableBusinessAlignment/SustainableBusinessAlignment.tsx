@@ -11,6 +11,7 @@ import bgImage3 from '../../../assets/images/img_purp_bg3.png'
 
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import Consumption from '../consumption/Consumption'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const SustainableBusinessAlignment = () => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
@@ -75,14 +76,14 @@ const SustainableBusinessAlignment = () => {
      return (
           <section className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Aligning Business Success with Environmental Responsibility
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          From reducing carbon footprints to fostering equality and promoting
                          responsible growth, we align our services with the UN&apos;s Sustainable
                          Development Goals.
-                    </p>
+                    </MainPara>
                </header>
 
                <div className={styles.gridcon}>
@@ -148,12 +149,12 @@ const SustainableBusinessAlignment = () => {
                                                   className={`${styles.image_con} ${styles.flexend}`}
                                              >
                                                   <Image
-                                                       src={item.image}
+                                                       src={item?.image}
                                                        alt='icon'
                                                        className={styles.image}
                                                   />
                                                   <Image
-                                                       src={item.bgImage}
+                                                       src={item?.bgImage}
                                                        alt='icon'
                                                        className={styles.bgImage}
                                                   />
@@ -171,12 +172,12 @@ const SustainableBusinessAlignment = () => {
                                              </div>
                                              <div className={styles.image_con}>
                                                   <Image
-                                                       src={item.image}
+                                                       src={item?.image}
                                                        alt='icon'
                                                        className={styles.image}
                                                   />
                                                   <Image
-                                                       src={item.bgImage}
+                                                       src={item?.bgImage}
                                                        alt='icon'
                                                        className={styles.bgImage}
                                                   />
@@ -192,20 +193,3 @@ const SustainableBusinessAlignment = () => {
 }
 
 export default SustainableBusinessAlignment
-
-{
-     /* <div className={styles.image_con}>
-                                             <Image
-                                                  src={item.bgImage}
-                                                  alt='icon'
-                                                  className={styles.image}
-                                             />
-                                             <div className={styles.img_wrp}>
-                                                  <Image
-                                                       src={item.image}
-                                                       alt='icon'
-                                                       className={styles.image}
-                                                  />
-                                             </div>
-                                        </div> */
-}

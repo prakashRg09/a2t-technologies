@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import styles from './CardGrid.module.scss'
 import Image from 'next/image'
 import globalIcon from '../../../../assets/icons/ic_global.svg'
@@ -52,6 +53,38 @@ const CardGrid = () => {
                desColor: '#795151',
           },
      ]
+
+     const initialFunc = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               gsap.fromTo(
+                    `.${styles.card}`,
+                    { y: '100%', opacity: 0, rotate: 20 },
+                    {
+                         y: '0%',
+                         opacity: 1,
+                         rotate: 0,
+                         duration: 0.7,
+                         delay: 0.3,
+                         ease: 'power2.out',
+                         stagger: 0.2,
+                         scrollTrigger: {
+                              trigger: `.${styles.cardsContainer}`,
+                              start: 'top 70%',
+                              end: 'bottom 10%',
+                              toggleActions: 'play none none none',
+                         },
+                    },
+               )
+          }
+     }
+
+     useEffect(() => {
+          initialFunc()
+     }, [])
+
      return (
           <div className={styles.four_card_layout}>
                {cards.map((card: any, index: any) => (
@@ -70,12 +103,12 @@ const CardGrid = () => {
                               width={40}
                               height={40}
                          />
-                         <h2
+                         <h3
                               className={`${styles.semiBoldText}`}
                               style={{ color: card.titleColor }}
                          >
                               {card.title}
-                         </h2>
+                         </h3>
                          <hr style={{ border: `1px solid ${card.borderColor}` }}></hr>
                          <p className={`${styles.regularText}`} style={{ color: card.desColor }}>
                               {card.description}

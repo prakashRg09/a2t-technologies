@@ -6,9 +6,15 @@ import bgImage2 from '../../../assets/images/purpose/img_pur_bg2.png'
 import image2 from '../../../assets/images/careers/img_explore_integrity.png'
 import bgImage3 from '../../../assets/images/purpose/img_pur_bg3.png'
 import image3 from '../../../assets/images/careers/img_explore_sustainability.png'
-
+import { MainHeading, MainPara } from '@/component/typography/Typography'
+interface ContentItem {
+     bgImage: any
+     img: any
+     title: string
+     description: string
+}
 function Explore() {
-     const arr: any = [
+     const arr: ContentItem[] = [
           {
                bgImage: bgImage1,
                img: image1,
@@ -34,20 +40,20 @@ function Explore() {
      return (
           <section className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3
+                    <MainHeading
                          className={`${styles.heading} ${styles.blackText} ${styles.sectionHeading}`}
                     >
                          Explore about <br className={styles.break} />
                          Life at A2 Technologies
-                    </h3>
-                    <p
+                    </MainHeading>
+                    <MainPara
                          className={`${styles.para} ${styles.regularText} ${styles.sectionHeading}`}
                          style={{ marginBlock: '0px' }}
                     >
                          Discover a culture where creativity thrives, teamwork drives success, and
                          innovation is at the heart of everything we do. Join us in creating a
                          vibrant, dynamic work environment that values growth and collaboration.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>
