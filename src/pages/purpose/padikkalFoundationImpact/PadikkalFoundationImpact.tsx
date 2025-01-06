@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useRef } from 'react'
 import styles from './PadikkalFoundationImpact.module.scss'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import bgImage from '../../../assets/images/img_layer_bg.png'
@@ -7,10 +8,46 @@ import OverlapImage from '@/component/overlapImage/OverlapImage'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const PadikkalFoundationImpact = () => {
+     const detailsRef = useRef<HTMLDivElement | null>(null)
+     const textRef = useRef(null)
+
+     const initialFunc = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: detailsRef.current,
+                         start: 'top 50%',
+                         end: 'bottom 20%',
+                         toggleActions: 'play none none none',
+                    },
+               })
+
+               timeline.fromTo(
+                    textRef.current,
+                    {
+                         opacity: 0,
+                         y: '30%',
+                    },
+                    {
+                         opacity: 1,
+                         y: 0,
+                         duration: 1,
+                    },
+               )
+          }
+     }
+
+     useEffect(() => {
+          initialFunc()
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+     }, [])
      return (
           <section className={styles.main_con}>
                <div className={styles.content_Wrapper}>
-                    <div className={styles.details_con}>
+                    <div className={styles.details_con} ref={textRef}>
                          <MainHeading className={styles.title}>
                               Empowering People, Transforming Communities through
                               <span> Padikkal Foundation</span>

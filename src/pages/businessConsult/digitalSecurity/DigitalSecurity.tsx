@@ -9,8 +9,6 @@ import imgLayer5 from '../../../assets/images/img_emp_5.png'
 import imgAb1 from '../../../assets/images/Business/img_sec_ab1.png'
 import imgAb2 from '../../../assets/images/Business/img_sec_ab2.png'
 import imgAb3 from '../../../assets/images/Business/img_sec_ab3.png'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const DigitalSecurity = () => {
      const imgRef1 = useRef(null)
@@ -36,7 +34,8 @@ const DigitalSecurity = () => {
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: imgRef1.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -56,7 +55,8 @@ const DigitalSecurity = () => {
                               delay: 0.2,
                               scrollTrigger: {
                                    trigger: imgRef2.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -76,7 +76,8 @@ const DigitalSecurity = () => {
                               delay: 0.4,
                               scrollTrigger: {
                                    trigger: imgRef3.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -96,7 +97,8 @@ const DigitalSecurity = () => {
                               delay: 0.6,
                               scrollTrigger: {
                                    trigger: imgAbRef1.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -115,7 +117,8 @@ const DigitalSecurity = () => {
                               delay: 0.8,
                               scrollTrigger: {
                                    trigger: imgAbRef2.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -135,7 +138,8 @@ const DigitalSecurity = () => {
                               delay: 1,
                               scrollTrigger: {
                                    trigger: imgAbRef3.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
