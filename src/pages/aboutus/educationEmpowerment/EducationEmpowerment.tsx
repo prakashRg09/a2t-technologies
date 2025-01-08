@@ -22,7 +22,10 @@ const EducationEmpowerment = () => {
      const imgAbRef2 = useRef(null)
      const imgAbRef3 = useRef(null)
      const imgAbRef4 = useRef(null)
-
+     const abtextLeft = useRef(null)
+     const abtextRight = useRef(null)
+     const labelRef = useRef(null)
+     const btnRef = useRef(null)
      const initialFunc = async () => {
           if (typeof window != 'undefined') {
                const { gsap } = await import('gsap')
@@ -47,7 +50,6 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgRef2.current) {
                     gsap.fromTo(
                          imgRef2.current,
@@ -68,7 +70,6 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgRef3.current) {
                     gsap.fromTo(
                          imgRef3.current,
@@ -89,17 +90,16 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgAbRef1.current) {
                     gsap.fromTo(
                          imgAbRef1.current,
-                         { opacity: 0, y: 30 },
+                         { opacity: 0, x: -40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: 0.5,
+                              delay: 0.6,
                               scrollTrigger: {
                                    trigger: imgAbRef1.current,
                                    start: 'top 80%',
@@ -113,10 +113,10 @@ const EducationEmpowerment = () => {
                if (imgAbRef2.current) {
                     gsap.fromTo(
                          imgAbRef2.current,
-                         { opacity: 0, y: 30 },
+                         { opacity: 0, x: 40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
                               delay: 0.7,
@@ -130,17 +130,16 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgAbRef3.current) {
                     gsap.fromTo(
                          imgAbRef3.current,
-                         { opacity: 0, y: 5 },
+                         { opacity: 0, x: -40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: 0.9,
+                              delay: 0.8,
                               scrollTrigger: {
                                    trigger: imgAbRef3.current,
                                    start: 'top 80%',
@@ -151,17 +150,16 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgAbRef4.current) {
                     gsap.fromTo(
                          imgAbRef4.current,
-                         { opacity: 0, y: 10 },
+                         { opacity: 0, x: 40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: 1,
+                              delay: 0.9,
                               scrollTrigger: {
                                    trigger: imgAbRef4.current,
                                    start: 'top 80%',
@@ -172,6 +170,66 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
+               if (abtextLeft.current) {
+                    gsap.fromTo(
+                         abtextLeft.current,
+                         { opacity: 0, scale: 0.9 },
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 1,
+                              scrollTrigger: {
+                                   trigger: abtextLeft.current,
+                                   start: 'top 80%',
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+               if (abtextRight.current) {
+                    gsap.fromTo(
+                         abtextRight.current,
+                         { opacity: 0, scale: 0.9 },
+                         {
+                              opacity: 1,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 1,
+                              scrollTrigger: {
+                                   trigger: abtextRight.current,
+                                   start: 'top 80%',
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: labelRef.current,
+                         start: 'top 80%',
+                         end: 'bottom 20%',
+                         toggleActions: 'play none none none',
+                    },
+               })
+
+               timeline
+                    .fromTo(
+                         labelRef.current,
+                         { y: '80%', opacity: 0 },
+                         { y: '0%', opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    )
+                    .fromTo(
+                         btnRef.current,
+                         { y: '80%', opacity: 0 },
+                         { y: '0%', opacity: 1, duration: 0.8, ease: 'power2.out' },
+                         '<',
+                    )
           }
      }
 
@@ -183,18 +241,20 @@ const EducationEmpowerment = () => {
           <section className={styles.eduction_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
-                         <Button
-                              label={'The Padikkal Foundation'}
-                              disabled={false}
+                         <div
+                              ref={labelRef}
                               style={{
-                                   height: '2rem',
+                                   height: 'auto',
+                                   width: 'fit-content',
                                    backgroundColor: '#0E7B68',
-                                   gap: '1rem',
-                                   marginBlock: '2rem',
+                                   color: '#fff',
+                                   paddingInline: '1rem',
+                                   paddingBlock: '0.5rem',
+                                   borderRadius: '20px',
                               }}
-                              loading={false}
-                              labestyle={{ marginLeft: '0px', fontSize: '0.9rem' }}
-                         />
+                         >
+                              The Padikkal Foundation
+                         </div>
                          <TitleDescriptionWithIcon
                               style={{ paddingInline: '0rem' }}
                               title={'Empowering Dreams Through Education'}
@@ -206,30 +266,32 @@ const EducationEmpowerment = () => {
                                    paddingInlineEnd: '3rem',
                               }}
                          />
-                         <Button
-                              label='Explore our Purpose'
-                              disabled={false}
-                              icon
-                              style={{
-                                   height: '3rem',
-                                   backgroundColor: '#0E7B68',
-                                   gap: '1rem',
-                                   borderRadius: '7px',
-                                   alignItems: 'center',
-                                   justifyContent: 'center',
-                                   marginBlock: '2rem',
-                              }}
-                              loading={false}
-                              labestyle={{
-                                   marginLeft: '0px',
-                                   fontSize: '1.125rem',
-                                   color: '#fff',
-                                   fontWeight: '400',
-                              }}
-                              onClick={() => {
-                                   router.push('/purpose')
-                              }}
-                         />
+                         <div ref={btnRef}>
+                              <Button
+                                   label='Explore our Purpose'
+                                   disabled={false}
+                                   icon
+                                   style={{
+                                        height: '3rem',
+                                        backgroundColor: '#0E7B68',
+                                        gap: '1rem',
+                                        borderRadius: '7px',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        marginBlock: '2rem',
+                                   }}
+                                   loading={false}
+                                   labestyle={{
+                                        marginLeft: '0px',
+                                        fontSize: '1.125rem',
+                                        color: '#fff',
+                                        fontWeight: '400',
+                                   }}
+                                   onClick={() => {
+                                        router.push('/purpose')
+                                   }}
+                              />
+                         </div>
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper_index}>
@@ -289,6 +351,12 @@ const EducationEmpowerment = () => {
                                              alt='image'
                                              className={styles.img_ab}
                                         />
+                                   </div>
+                                   <h4 className={styles.text_left} ref={abtextLeft}>
+                                        PADIKKAL
+                                   </h4>
+                                   <div className={styles.text_right} ref={abtextRight}>
+                                        <h4>FOUNDATION</h4>
                                    </div>
                               </div>
                          </div>

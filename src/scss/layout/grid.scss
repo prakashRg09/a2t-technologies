@@ -4,7 +4,7 @@
      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
      .grid_item {
-          height: 20rem;
+          height: auto;
           background-color: #f4f4f4;
           padding: 20px;
           border-radius: 8px;
@@ -15,7 +15,7 @@
 
 .five_card_layout {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
      gap: 1rem;
      position: relative;
      width: 100%;
