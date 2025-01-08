@@ -24,9 +24,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                </head>
                <body>
                     <Suspense fallback={<Loading />}>
-                         <Navbar />
-                         {children}
-                         <Footer />
+                         <PageWrapper>
+                              <Navbar />
+                              {children}
+                              <Footer />
+                         </PageWrapper>
                     </Suspense>
                </body>
           </html>
