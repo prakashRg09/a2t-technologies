@@ -18,7 +18,7 @@ const InfoCard = forwardRef(({ data, isLoading }: any, forwardRefs: any) => {
 
      return (
           <>
-               {data.map((item: any, index: any) =>
+               {data?.map((item: any, index: any) =>
                     false ? (
                          <NewsCardSkeleton
                               key={index}
@@ -32,8 +32,8 @@ const InfoCard = forwardRef(({ data, isLoading }: any, forwardRefs: any) => {
                          >
                               <div className={styles.imageContainer}>
                                    <Image
-                                        src={item.img}
-                                        alt={item.title}
+                                        src={item?.img}
+                                        alt={item?.title}
                                         priority
                                         className={styles.image}
                                    />
@@ -42,17 +42,17 @@ const InfoCard = forwardRef(({ data, isLoading }: any, forwardRefs: any) => {
                                    <div className={styles.date}>
                                         <Image src={calendarIcon} alt='calendar_icon' />
                                         <TertiaryPara className={styles.datelable}>
-                                             {item.date}
+                                             {item?.date}
                                         </TertiaryPara>
                                    </div>
                                    <TertiaryHeading className={styles.title}>
-                                        {item.title}
+                                        {item?.title}
                                    </TertiaryHeading>
                                    <TertiaryPara className={styles.description}>
-                                        {item.para}
+                                        {item?.para}
                                    </TertiaryPara>
                                    <div className={styles.tags}>
-                                        {arr.map((tag: any, tagIndex: any) => (
+                                        {arr?.map((tag: any, tagIndex: any) => (
                                              <span key={tagIndex} className={styles.tag}>
                                                   {tag}
                                              </span>

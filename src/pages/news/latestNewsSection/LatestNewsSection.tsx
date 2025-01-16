@@ -188,7 +188,7 @@ const LatestNewsSection = () => {
                          {false ? (
                               <NewsCardSkeleton style={{ width: '37rem' }} />
                          ) : (
-                              arr.map((item, index) => (
+                              arr?.map((item, index) => (
                                    <UpdateCard
                                         key={index}
                                         imageUrl={item.img}
@@ -222,7 +222,7 @@ const LatestNewsSection = () => {
                                    Latest news
                               </SecondaryHeading>
                               <div className={styles.card_con_wrapper}>
-                                   {posts.map((post: any, index: any) => (
+                                   {posts?.map((post: any, index: any) => (
                                         <UpdateCard
                                              key={index}
                                              tagStyle={{ padding: '10px 14px', fontSize: '0.7rem' }}
