@@ -1,25 +1,60 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import styles from './LogisticsOptimization.module.scss'
 import Image from 'next/image'
-import bgImage from '../../../assets/images/img_emp_7.png'
+import playBtn from '../../../assets/icons/ic_play_btn.png'
 import img from '../../../assets/images/fleet/img_lan_1.png'
 import img1 from '../../../assets/images/fleet/img_lan_2.png'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const LogisticsOptimization = () => {
+     const [isSmallScreen, setIsSmallScreen] = useState(false)
+     const [isModalOpen, setIsModalOpen] = useState(false)
+
+     const openModal = () => setIsModalOpen(true)
+     const closeModal = () => setIsModalOpen(false)
+
      return (
           <section className={styles.main_con}>
                <div className={styles.container_wrp}>
                     <div className={styles.img_wrapper}>
-                         <div className={styles.img}>
-                              <Image
-                                   src={img}
-                                   alt=''
-                                   priority
-                                   placeholder='blur'
-                                   className={styles.image}
-                              />
-                         </div>
+                         {!isModalOpen && (
+                              <div className={styles.thumb_nailWrapper_con}>
+                                   <div className={styles.thumb_nailWrapper} onClick={openModal}>
+                                        <Image
+                                             src={img}
+                                             alt='Thumbnail'
+                                             className={styles.image}
+                                             width={300}
+                                             height={200}
+                                        />
+                                        <div className={styles.playbtn}>
+                                             <Image src={playBtn} alt='Play btn' />
+                                        </div>
+                                   </div>
+                              </div>
+                         )}
+
+                         {isModalOpen && (
+                              <div className={styles.modalOverlay} onClick={closeModal}>
+                                   <div
+                                        className={styles.modalContent}
+                                        onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+                                   >
+                                        <button className={styles.closeButton} onClick={closeModal}>
+                                             &times;
+                                        </button>
+                                        <video
+                                             className={styles.videoPlayer}
+                                             controls
+                                             autoPlay
+                                             src={
+                                                  'https://cdn.pixabay.com/video/2017/11/01/12714-241674172_large.mp4'
+                                             }
+                                        />
+                                   </div>
+                              </div>
+                         )}
                     </div>
                     <div className={styles.details_con}>
                          <label className={styles.label}>Fleet management Services</label>

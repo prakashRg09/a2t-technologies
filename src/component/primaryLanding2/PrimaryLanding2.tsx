@@ -113,7 +113,6 @@ const PrimaryLanding = ({
                                                   <Image
                                                        src={smallImageSrc || thumb_nail}
                                                        alt='Thumbnail'
-                                                       placeholder='blur'
                                                        priority
                                                        className={styles.image}
                                                        width={300}
