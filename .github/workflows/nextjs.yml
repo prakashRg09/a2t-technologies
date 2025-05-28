@@ -68,12 +68,13 @@ jobs:
                  env:
                       NEXT_PUBLIC_USER_BASE_URL: ${{ secrets.USER_BASE_URL }}
                  run: ${{ steps.detect-package-manager.outputs.runner }} next build
-               - name: Export static files
-                 run: ${{ steps.detect-package-manager.outputs.runner }} next export
+               # REMOVED: Export static files step - this was causing the error
+               # - name: Export static files
+               #   run: ${{ steps.detect-package-manager.outputs.runner }} next export
                - name: Upload artifact
                  uses: actions/upload-pages-artifact@v3
                  with:
-                      path: ./out
+                      path: ./.next # Changed from ./out to ./.next
 
      # Deployment job
      deploy:
