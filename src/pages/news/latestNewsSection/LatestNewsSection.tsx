@@ -200,7 +200,7 @@ const LatestNewsSection = () => {
                          onChange={(value: any) => setOptions(value)}
                     />
                </div>
-               <div className={styles.header} style={{ color: '#201A2D' }}>
+               <div className={styles.header}>
                     <SecondaryHeading className={styles.title}>Featured news</SecondaryHeading>
                </div>
 

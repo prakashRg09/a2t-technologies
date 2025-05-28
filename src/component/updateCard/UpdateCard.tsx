@@ -71,7 +71,7 @@ const UpdateCard = forwardRef(
                     <div className={styles.content}>
                          <div className={styles.date}>
                               <Image src={calendarIcon} alt='calendar_icon' />
-                              <TertiaryPara> {date}&apos;</TertiaryPara>
+                              <TertiaryPara> {date}</TertiaryPara>
                          </div>
                          <div className={styles.flexCon}>
                               <div className={styles.titleSec}>

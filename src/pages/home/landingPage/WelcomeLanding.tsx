@@ -1,8 +1,7 @@
 'use client'
 
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './WelcomeLanding.module.scss'
-import Navbar from '@/component/navbar/Navbar'
 import { Inter } from 'next/font/google'
 import Button from '@/component/button/Button'
 import logoIcon from '../../../assets/icons/ic_logo.svg'
@@ -11,6 +10,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
+import 'react-datepicker/dist/react-datepicker.css'
+// import { FaCalendarAlt } from 'react-icons/fa' // Import your icon here
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '800'],

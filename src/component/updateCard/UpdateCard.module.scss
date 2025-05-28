@@ -25,7 +25,7 @@
           padding-block-end: 1rem;
 
           .date {
-               color: #6d6d6d;
+               color: #6c757d;
                font-size: 0.875rem;
                display: flex;
                align-items: center;
@@ -77,10 +77,10 @@
                     flex-direction: column;
                     justify-content: flex-start;
                     margin-block-end: 1rem;
-                    color: #201a2d;
 
                     .header {
                          padding-block: 1rem;
+                         color: #201A2D;
                     }
 
                     .sub_header {
@@ -154,5 +154,7 @@
                     }
                }
           }
+
+
      }
 }

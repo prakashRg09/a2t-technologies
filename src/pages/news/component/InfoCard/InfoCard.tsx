@@ -41,7 +41,7 @@ const InfoCard = forwardRef(({ data, isLoading }: any, forwardRefs: any) => {
                                    <div className={styles.date}>
                                         <Image src={calendarIcon} alt='calendar_icon' />
                                         <TertiaryPara className={styles.datelable}>
-                                             {item.date}&apos;
+                                             {item.date}
                                         </TertiaryPara>
                                    </div>
                                    <TertiaryHeading className={styles.title}>
