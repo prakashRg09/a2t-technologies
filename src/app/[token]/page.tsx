@@ -4,13 +4,13 @@ import TokenPage from './TokenPage'
 
 // This tells Next.js that this dynamic route should be handled client-side
 export async function generateStaticParams() {
-     // Return empty array - all tokens will be handled client-side
-     return []
+     // Example: return [{ token: 'foo' }, { token: 'bar' }]
+     return [
+          { token: 'foo' },
+          { token: 'bar' },
+          // ...add all tokens you want to statically generate
+     ]
 }
-
-// This tells Next.js to generate this route at build time
-export const dynamicParams = true
-
 function page() {
      return <TokenPage />
 }
