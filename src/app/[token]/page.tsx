@@ -39,9 +39,15 @@ import ImageTransport from '../../assets/images/modal_Img/img_transport.png'
 import ImageEmission from '../../assets/images/modal_Img/img_emission.png'
 import ImageTraget from '../../assets/images/modal_Img/img_traget.png'
 
+export async function generateStaticParams() {
+     // Dummy token values to satisfy static export requirement
+     // These don't need to be real tokens since the actual token is fetched at runtime
+     return []
+}
+
 const TokenPage = () => {
-  const searchParams = useSearchParams()
-     const token = searchParams?.get('token');// Get the token from URL params
+     const searchParams = useSearchParams()
+     const token = searchParams?.get('token') // Get the token from URL params
      const [isModalOpen, setIsModalOpen] = useState(false)
      const [isLoading, setIsLoading] = useState(true)
      const [windowWidth, setWindowWidth] = useState(1)
